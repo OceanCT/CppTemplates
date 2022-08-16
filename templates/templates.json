@@ -1,5 +1,6 @@
 {
     "st.cpp":"st表",
     "monostack.cpp":"单调栈",
-    "quickReadWrite.cpp":"快读快写"
+    "quickReadWrite.cpp":"快读快写",
+    "binaryIndexTree.cpp":"树状数组"
 }

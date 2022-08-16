@@ -1,5 +1,4 @@
 import json
-import functools
 # 将模板加入readme.md
 class template:
     def __init__(self,filename:str,description:str):
@@ -9,15 +8,15 @@ class template:
         dic = {}
         dic[self.filename] = self.description
         return dic.__str__()
-def cmp(x:template,y:template):
-    return x.filename<y.filename
+def cmp(x:template):
+    return x.filename
 
 with open('templates/templates.json','r',encoding='utf8') as f:
     templates = json.load(f)
 template_lis = []
 for i in templates.items():
     template_lis.append(template(i[0],i[1]))
-template_lis.sort(key=functools.cmp_to_key(cmp))
+template_lis.sort(key=cmp)
 with open('readme.md','r',encoding='utf8') as f:
     readme_str = f.read()
 target_str = '# 模板对应关系'

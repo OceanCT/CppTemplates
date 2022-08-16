@@ -10,9 +10,11 @@ staticGenerate.py 静态文件生成器
 
 # 模板对应关系
 
-st.cpp --st表
+binaryIndexTree.cpp --树状数组
 
 monostack.cpp --单调栈
 
 quickReadWrite.cpp --快读快写
+
+st.cpp --st表
 
