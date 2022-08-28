@@ -27,6 +27,38 @@ int main(){
 
 
 
+# 逆元
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+#define mod 998244353
+#define N 1000005
+int inv[N],n;
+inline int add(int x,int y){return ((long long)x+y)%mod;};
+inline int mul(int x,int y){return (long long)x*y%mod;}
+inline int quickpow(int x,int y){
+    long long ans = 1;
+    while(y){
+        if(y&1) ans = ans*x%mod;
+        x = (long long)x*x%mod;
+        y/=2;
+    }
+    return (int)ans;
+}  
+int main(){
+    cin>>n;
+    // 线性求逆元
+    inv[1] = 1;
+    for(int i=2;i<=n;i++) inv[i] = mul(mod-mod/i,inv[mod%i]);
+    // 小费马定理
+    for(int i=1;i<=n;i++) inv[i] = quickpow(i,mod-2);
+    return 0;
+}
+```
+
+
+
 # 单调栈
 
 ```cpp
@@ -99,7 +131,7 @@ using namespace std;
 #define N 1000005
 #define FIN freopen("in","r",stdin);
 #define IOS ios::sync_with_stdio(false);
-int st[N][21], n, tmplog[N], tmp2[N];
+int st[N][21], n, tmplog[N], tmp2[21];
 // st_table
 inline int read(){
     int x = 0, f = 1;char ch = getchar();
@@ -138,6 +170,91 @@ int main() {
     for (int i = 1; i <= n; i++)
         st[i][0] = read();
     st_build();
+    return 0;
+}
+```
+
+
+
+# 基本板
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+#define lowbit(x)  (-x&x)
+#define endl '\n'
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define FIN freopen("in","r",stdin)
+#define FOUT freopen("out","w",stdout)
+typedef long long ll;
+typedef unsigned long long ull;
+typedef __int128 int128;
+inline int128 read() {int128 x;char ch(getchar());bool f(false);while (!isdigit(ch))f |= ch == 45, ch = getchar();x = ch & 15, ch = getchar();while (isdigit(ch))x = x * 10 + (ch & 15), ch = getchar();if (f)x = -x;return x;}
+template<typename tp> inline void read(tp& x) {char ch(getchar());bool f(false);while (!isdigit(ch))f |= ch == 45, ch = getchar();x = ch & 15, ch = getchar();while (isdigit(ch))x = x * 10 + (ch & 15), ch = getchar();if (f)x = -x;}
+template<typename tp, typename... args> inline void read(tp& x,args&...y){read(x);read(y...);}
+template<typename tp> inline void write(tp x){if(x<0)putchar('-'),x=-x;if(x>9)write(x/10);putchar(x%10+'0');return;}
+template<typename tp, typename... args> inline void write(tp x,args... y){write(x),putchar(' '),write(y...);}
+template<typename tp> inline tp chmax(tp a, tp b) { return a > b ? a : b; };
+template<typename tp, typename... args> inline tp chmax(tp a, args... b) { return chmax(a, chmax(b...)); }
+template<typename tp> inline tp chmin(tp a, tp b) { return a < b ? a : b; }
+template<typename tp, typename... args> inline tp chmin(tp a, args... b) { return chmin(a, chmin(b...)); }
+
+int main() {
+    
+
+
+
+    
+    return 0;
+}
+```
+
+
+
+# 字典树
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+#define N1 62
+#define N 3000005
+typedef struct Tire {
+    int tr[N][N1], cnt[3000005], idx;
+    int toi(char x) {
+        if (x >= 'A' && x <= 'Z')return x - 'A';
+        else if (x >= 'a' && x <= 'z')return x - 'a' + 26;
+        else return x - '0' + 52;
+    }
+    void insert(string str) {
+        int p = 0, len = str.length();
+        for (int i = 0;i < len;i++) {
+            int c = toi(str[i]);
+            if (!tr[p][c])tr[p][c] = ++idx;
+            p = tr[p][c];
+            cnt[p]++;
+        }
+    }
+    int find(string str) {
+        int p = 0, len = str.length();
+        for (int i = 0;i < len;i++) {
+            int c = toi(str[i]);
+            if (!tr[p][c])return 0;
+            p = tr[p][c];
+        }
+        return cnt[p];
+    }
+    void init() {
+        for (int i = 0;i <= idx;i++) {
+            for (int j = 0;j < N1;j++) tr[i][j] = 0;
+            cnt[i] = 0;
+        }
+        idx = 0;
+    }
+}tire;
+int main(){
+
+
+
     return 0;
 }
 ```

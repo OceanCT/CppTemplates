@@ -3,7 +3,7 @@ using namespace std;
 #define N 1000005
 #define FIN freopen("in","r",stdin);
 #define IOS ios::sync_with_stdio(false);
-int st[N][21], n, tmplog[N], tmp2[N];
+int st[N][21], n, tmplog[N], tmp2[21];
 // st_table
 inline int read(){
     int x = 0, f = 1;char ch = getchar();

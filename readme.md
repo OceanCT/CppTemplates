@@ -12,9 +12,15 @@ staticGenerate.py 静态文件生成器
 
 binaryIndexTree.cpp --树状数组
 
+inv.cpp --逆元
+
 monostack.cpp --单调栈
 
 quickReadWrite.cpp --快读快写
 
 st.cpp --st表
+
+template.cpp --基本板
+
+tire.cpp --字典树
 
