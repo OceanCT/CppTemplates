@@ -1,21 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class monotype {
+class monotype
+{
 public:
     int con;
-    bool mono(monotype other) {
+    bool mono(monotype other)
+    {
         return other.con <= con ? true : false;
     }
 };
 template <typename MONOTYPE>
-class monostack {
+class monostack
+{
 private:
     stack<MONOTYPE> sk;
+
 public:
-    void __preparePush(MONOTYPE k) {
-        while (!sk.empty() && !sk.top().mono(k))sk.pop();
+    void __preparePush(MONOTYPE k)
+    {
+        while (!sk.empty() && !sk.top().mono(k))
+            sk.pop();
     }
-    void push(MONOTYPE k) {
+    void push(MONOTYPE k)
+    {
         __preparePush(k);
         sk.push(k);
     }
@@ -25,6 +32,7 @@ public:
     MONOTYPE top() { return sk.top(); }
 };
 
-int main() {
+int main()
+{
     return 0;
 }
