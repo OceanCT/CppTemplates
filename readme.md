@@ -14,6 +14,8 @@ binaryIndexTree.cpp --树状数组
 
 inv.cpp --逆元
 
+manacher.cpp --马拉车
+
 monostack.cpp --单调栈
 
 quickReadWrite.cpp --快读快写

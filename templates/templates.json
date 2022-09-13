@@ -5,5 +5,6 @@
     "binaryIndexTree.cpp":"树状数组",
     "inv.cpp":"逆元",
     "tire.cpp":"字典树",
-    "template.cpp":"基本板"
+    "template.cpp":"基本板",
+    "manacher.cpp":"马拉车"
 }
